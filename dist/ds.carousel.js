@@ -109,8 +109,8 @@ class Carousel {
                     this.currentSkill = this.listSkill[this.listSkill.length - 1];
                     p.innerHTML = this.currentSkill
                     p.setAttribute('class', `uppercase carousel-title carousel-title--${this.listSkill.length - 1}`)
-                    text.innerHTML = this.listText[this.listText - 1]
-                    text.setAttribute('class', `text text--${this.listText[this.listText - 1]}`)
+                    text.innerHTML = this.listText[this.listText.length - 1]
+                    text.setAttribute('class', `text text--${this.listText[this.listText.length - 1]}`)
                     this.element.querySelector('li:last-child').setAttribute('class', 'activ');
                 } else {
                     this.current = this.listImage[--i]; //pré-incrémentation

@@ -23,6 +23,8 @@ class Carousel {
         previous.innerHTML = '<';
         this.element.appendChild(previous);
         let ul = document.createElement('ul');
+        let divDot = document.createElement('div');
+        divDot.className = 'dot-container flex center'
         for(let i = 0; i < this.listImage.length; i++) {
             let li = document.createElement('li');
             let img = document.createElement('img');
@@ -31,18 +33,27 @@ class Carousel {
             intro.className = 'carousel-text';
             let p = document.createElement('p');
             let text = document.createElement('p');
+            let dot = document.createElement('span');
+            dot.className = 'dot'
             p.className = `uppercase carousel-title`;
+
             img.className = 'slide';
             text.className = 'text';
             img.setAttribute('src', this.listImage[i]);
-            li.appendChild(div)
-            div.appendChild(intro)
-            div.appendChild(p)
+            dot.textContent = '.';
+
+            li.appendChild(div);
+            div.appendChild(intro);
+            div.appendChild(p);
             li.appendChild(text);
             li.appendChild(img);
+            divDot.appendChild(dot);
             ul.appendChild(li);  
         }
         this.element.appendChild(ul);
+        this.element.appendChild(divDot);
+        
+        
         let next = document.createElement('button');
         next.setAttribute('class', 'next-button');
         next.innerHTML = '>';
@@ -66,6 +77,7 @@ class Carousel {
         text.innerHTML = this.listText[0];
         text.setAttribute('class', `text text--0`)
         document.querySelector(this.selector + ' li:first-child').setAttribute('class', 'activ');
+        document.querySelector(this.selector + ' span.dot:first-child').setAttribute('class', 'activ-dot');
     }
 
     next() {
@@ -75,6 +87,7 @@ class Carousel {
                 if (this.listImage[i] == this.current) {
                    p.setAttribute('class', `uppercase carousel-title carousel-title--0`)
                     let activ = document.querySelector(this.selector + ' li.activ');
+                    let activDot = document.querySelector(this.selector + ' span.activ-dot');
                     if (i == (this.listImage.length - 1)) {
                         this.current = this.listImage[0];
                         this.currentSkill = this.listSkill[0];
@@ -83,6 +96,7 @@ class Carousel {
                         text.innerHTML = this.listText[0]
                         text.setAttribute('class', `text text--0`)
                         this.element.querySelector('li:first-child').setAttribute('class', 'activ');
+                        this.element.querySelector('span.dot:first-child').setAttribute('class', 'activ-dot');
                     } else {
                         this.current = this.listImage[++i]; //pré-incrémentation
                         this.currentSkill = this.listSkill[i];
@@ -91,8 +105,10 @@ class Carousel {
                         text.innerHTML = this.listText[i]
                         text.setAttribute('class', `text text--${i}`)
                         activ.nextSibling.setAttribute('class', `activ`); //on recupère le prochain li avec une class activ
+                        activDot.nextSibling.setAttribute('class', `activ-dot`);
                     }                
                     activ.setAttribute('class', ''); // on supprime la class active de l'élément current
+                    activDot.setAttribute('class', 'dot')
                     break; // arrêt de la boucle dès qu'on a trouvé l'image
                 }
         }
@@ -103,6 +119,7 @@ class Carousel {
         let text = document.querySelector(this.selector + ' p.text');
         for (let i = 0; i <= this.listImage.length; i++) {
             let activ = document.querySelector(this.selector + ' li.activ');
+            let activDot = document.querySelector(this.selector + ' span.activ-dot');
             if (this.listImage[i] == this.current) {
                 if (i == 0) {
                     this.current = this.listImage[this.listImage.length - 1];
@@ -112,6 +129,7 @@ class Carousel {
                     text.innerHTML = this.listText[this.listText.length - 1]
                     text.setAttribute('class', `text text--${this.listText[this.listText.length - 1]}`)
                     this.element.querySelector('li:last-child').setAttribute('class', 'activ');
+                    this.element.querySelector('span.dot:last-child').setAttribute('class', 'activ-dot');
                 } else {
                     this.current = this.listImage[--i]; //pré-incrémentation
                     this.currentSkill = this.listSkill[i];
@@ -120,8 +138,10 @@ class Carousel {
                     text.innerHTML = this.listText[i]
                     text.setAttribute('class', `text text--${this.listText[i]}`)
                     activ.previousSibling.setAttribute('class', 'activ'); //on recupère le prochain li avec une class activ
+                    activDot.previousSibling.setAttribute('class', 'activ-dot');
                 }
                 activ.setAttribute('class', ''); // on supprime la class active de l'élément current
+                activDot.setAttribute('class', 'dot')
                 break; // arrêt de la boucle dès qu'on a trouvé l'image
             }
         }

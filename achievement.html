@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="prefixed/style.css">
         <title>Réalisations</title>
     </head>
     <body>
@@ -85,7 +85,7 @@
             </section>
             <section id="achievement-review">
                 <div class="achievement-review-container relative">
-                    <button id="back-btn" class="button button-back uppercase">
+                    <button class="button button-back uppercase">
                         retour<br/><strong>aux projets</strong>
                     </button>
                     <h3 id="name" class="uppercase heading"></h3>
@@ -111,6 +111,9 @@
                 </button>
             </section>
             <section id="achievement-all">
+                <button class="button button-home uppercase">
+                    retour<br/><strong>à l'accueil</strong>
+                </button>
                 <ul class="achievement-all_menu">
                     <li>   
                         <a href="" class="sample a-link sample--white flex center align">
@@ -144,6 +147,9 @@
                         </a>
                     </li>
                 </ul>
+                <button class="button button-home-responsive uppercase">
+                    retour<br/><strong>à l'accueil</strong>
+                </button>
             </section>
         </main>
         <footer>
@@ -183,9 +189,9 @@
                 <p class="copyright">2021 Dorothée Schneider : <a href="copyright.html">Mentions légales</a></p>
             </div>
         </footer>
-        <script src="dist/ds.dropMenu.js"></script>
-        <script src="dist/ds.achievementCarousel.js"></script>
-        <script src="dist/ds.achievement.js"></script>
+        <script src="dist/ds.dropMenu.js" defer></script>
+        <script src="dist/ds.achievementCarousel.js" defer></script>
+        <script src="dist/ds.achievement.js" defer></script>
         
     </body>
 </html>

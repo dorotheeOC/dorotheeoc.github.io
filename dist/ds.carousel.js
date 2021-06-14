@@ -5,7 +5,7 @@ class Carousel {
             listSkill: [],
             listText: [],
             selector: '.carousel',
-            autoplay: 8000
+            autoplay: 10000
         }
         this.options =  Object.assign(defaultOptions, options);
         this.autoplay = options.autoplay;
@@ -60,7 +60,7 @@ class Carousel {
         this.element.appendChild(next);
 
         this.prepareEvent();
-        if(this.autoPlay !=0) {
+        if(this.autoplay !=0) {
             this.autoPlay();
         }
     }
@@ -157,8 +157,12 @@ class Carousel {
     }
     autoPlay() {
         let thisDiapo = this;
-        setInterval(() => {
-            thisDiapo.next();
-        }, thisDiapo.autoplay)
+        if (this.autoplay !=0) {
+            const auto = setInterval(() => {
+                thisDiapo.next();
+            }, thisDiapo.autoplay)
+        } else {
+            clearInterval(auto)
+        }
     }
 }

@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="prefixed/style.css">
         <title>Contact</title>
     </head>
-    <body>
+    <body onload="createCaptcha()">
         <header id="top" class="flex center">
             <div class="relative nav-style">
                 <div class="header-row flex">
@@ -106,6 +106,18 @@
                                     <span class="comment-length">0/350</span>
                                 </small>
                             </div>
+                            <!-- captcha-->
+                            <div class="form-group flex column">
+                                <div class="captcha-container flex">
+                                    <div id="captcha"></div>
+                                    <button class="button button-generate uppercase">Générer<br/>
+                                        <strong class="uppercase">une nouvelle image</strong> 
+                                    </button>
+                                </div>
+                                <label for="captchaBox"><span class="sr-only">Nom</span></label>
+                                <input type="text" placeholder="Veuillez saisir les 6 caractères de l'image" name="captchaBox" id="cpatchaTextBox" required/> 
+                            </div>
+                            <!-- captcha-->
                             <button class="button button-contact uppercase" value="submit" type="submit">Envoyer<br/>
                                 <strong class="uppercase">la demande</strong>
                             </button>
@@ -154,6 +166,6 @@
             </div>
         </footer>
         <script src="dist/ds.dropMenu.js" defer></script>
-        <script src="dist/ds.contact.js" defer></script>      
+        <script src="dist/ds.contact.js"></script>      
     </body>
 </html>

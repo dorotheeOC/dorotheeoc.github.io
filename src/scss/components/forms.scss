@@ -1,0 +1,102 @@
+textarea {
+    resize: none;
+}
+
+button {
+    border: 0;
+}
+
+input, textarea {
+    padding: 12px;
+    border: 0;
+    background-color: var(--white);
+    width: 100%;
+
+    &::placeholder {
+        font-style: italic;
+        color: var(--tertiary-color);
+        font-family: $body-font-family;
+        font-weight: 300;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    height: 100%;
+
+    button {
+        position: absolute !important;
+        bottom: -25px;
+    }
+}
+
+.form {
+    &-group {
+        width: 60%;
+        &::before {
+            content: '*';
+            color: var(--primary-color);
+        }
+    }
+
+    &-wrapper {
+
+        background-color: var(--lightgray);
+        width: auto;
+        height: 65vh;
+        max-height: 650px;
+        margin: auto;
+        clip-path: polygon(0 16%, 14% 0, 100% 0, 100% 84%, 87% 100%, 86% 100%, 0% 150%);
+        aspect-ratio: 3/4;
+
+        .title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: fit-content;
+            margin: auto;
+            height: 15vh;
+        }
+    }
+
+    &-shape {
+        position: relative;
+        width: fit-content;
+        margin: 3rem auto;
+
+        .illustration {
+            position: absolute;
+            top: -2vh;
+            right: calc(100% - 8vh);
+            width: 12vh;
+            height: auto;
+            aspect-ratio: 1/1;
+            background: url(../../../assets/img/illustration-contact.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            height: 14vh;
+            width: 6px;
+            background-color: var(--secondary-color);
+            transform: skewY(-33deg) rotate(50deg);
+            z-index: 1;
+        }
+        &::before {
+            top: -2.5vh;
+            left: 31px;
+        }
+
+        &::after {
+            bottom: -2.5vh;
+            right: 31px;
+        }
+    }
+}

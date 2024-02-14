@@ -1,0 +1,51 @@
+@keyframes arrow {
+    0% {
+        opacity: 0;
+        transform: translate(100px, 100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes line {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes linear-bg {
+  0% {
+    background: linear-gradient(90deg, var(--primary-color), var(--light-primary), var(--primary-color))
+  }
+  20% {
+    background: linear-gradient(99deg, var(--primary-color), var(--light-primary), var(--primary-color))
+  }
+  40% {
+    background: linear-gradient(108deg, var(--primary-color), var(--light-primary), var(--primary-color))
+  }
+  60% {
+    background: linear-gradient(114deg, var(--primary-color), var(--light-primary), var(--primary-color))
+  }
+  80% {
+    background: linear-gradient(123deg, var(--primary-color), var(--light-primary), var(--primary-color))
+  }
+  100% {
+    background: linear-gradient(132deg, var(--primary-color), var(--light-primary), var(--primary-color))
+  }
+}

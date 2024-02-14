@@ -1,0 +1,152 @@
+:root {
+    --primary-color: #F18B71;
+    --secondary-color: #B6D0DA;
+    --secondary-color-light: #C7DCE5;
+    --tertiary-color: #555C6f;
+    --lightgray: #EDEBEE;
+    --mediumgray: #c3c3c3;
+    --white: #fefefe;
+    --black: #040505;
+    --light-primary: #FFC4B5;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    line-height: 1.2;
+    font-family: $body-font-family;
+    background: var(--white);
+}
+
+body * {
+    box-sizing: border-box;
+
+}
+
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    @include transition;
+}
+
+.hide-for-large {
+
+    &:not(.flex-container) {
+        display: block;
+
+    }
+
+    &.flex-container {
+        display: flex;
+    }
+
+    @include breakpoint(large) {
+        display: none !important;
+    }
+
+}
+
+.show-for-large {
+
+    @include breakpoint(large, down) {
+        display: none !important;
+    }
+
+    @include breakpoint(large) {
+
+        &:not(.flex-container) {
+            display: block;
+
+        }
+
+        &.flex-container {
+            display: flex;
+        }
+    }
+}
+
+.flex-container {
+    display: flex;
+}
+
+.flex-dir-column {
+    flex-direction: column;
+}
+
+.isAbs{
+    position: absolute !important;
+}
+
+.isRel{
+    position: relative;
+}
+
+.align-self-center {
+    align-self: center;
+}
+
+.sr-only {
+    display: none;
+}
+
+hr {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    height: 4px;
+    background: $linear-primary;
+    box-shadow: $button-shadow;
+    position: fixed;
+    width: 100%;
+    top: 66px;
+    z-index: -1;
+
+    @include breakpoint(large) {
+        height: 25px;
+        box-shadow: unset;
+        position: initial;
+        top: unset;
+    }
+}
+
+.bg {
+    &-primary {
+        background: var(--primary-color);
+    }
+
+    &-secondary {
+        background: var(--secondary-color);
+    }
+
+    &-tertiary {
+        background: var(--tertiary-color);
+    }
+
+    &-white {
+        background: var(--white);
+    }
+}
+
+
+.loader {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 3px solid var(--tertiary-color);
+    border-right: 3px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    z-index: 0;
+  }

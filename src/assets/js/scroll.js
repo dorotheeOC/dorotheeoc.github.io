@@ -3,17 +3,23 @@ export default class Scroll {
         this.el = document.body;
         this.scrollTopEl = document.querySelector('.side-bar');
         this.scrollPos = 0;
+        this.backBtn = document.querySelector('.button.back-button')
+        this.footer = document.querySelector('footer')
 
         if(!!window && !!this.el) {
             this.anchors = this.el.querySelectorAll('.anchor');
             this.sections = this.el.querySelectorAll('section');
-            
+
             if(window.location.pathname == '/') {
                 this.init();
             }
 
             if(!!this.scrollTopEl) {
                 this.initScrollTool();
+            }
+
+            if(window.window.innerWidth < 1024 && !!this.backBtn && !!this.footer) {
+                this.observeFooter(this.footer);
             }
         }
     }
@@ -81,5 +87,27 @@ export default class Scroll {
                 self.scrollTopEl.classList.remove('active');
             }
         });
+    }
+
+    observeFooter(footer) {
+        const self = this;
+        if (!!window.IntersectionObserver ) {
+            const ob = new IntersectionObserver(obCallback, {
+                rootMargin: '0px'
+            });
+
+            function obCallback(entries) {
+                entries.forEach(entry => {
+
+                    if(entry.isIntersecting) {
+                        self.backBtn.classList.add('unstick');
+                    } else {
+                        self.backBtn.classList.remove('unstick');
+                    }
+                });
+              }
+
+            ob.observe(footer);
+        }
     }
 }

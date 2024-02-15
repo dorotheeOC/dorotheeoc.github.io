@@ -5,7 +5,12 @@
     border-radius: 14px;
     width: fit-content;
     cursor: pointer;
+    font-size: 12px;
     @include transition;
+
+    @include breakpoint(large) {
+        font-size: inherit;
+    }
 
     &.right {
         padding: 12px 12px 12px 2.5rem;
@@ -54,7 +59,6 @@
     &::after {
         top: 0;
         bottom: 0;
-       
         margin: auto;
         width: auto;
         height: 40px;
@@ -76,7 +80,7 @@
 
     &:hover {
         box-shadow: $button-shadow;
-        
+
         &::before, &::after {
             opacity: .27;
         }

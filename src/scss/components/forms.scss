@@ -26,6 +26,11 @@ form {
     align-items: center;
     gap: 1.5rem;
     height: 100%;
+    padding-bottom: 3rem;
+
+    @include breakpoint(large) {
+        padding-bottom: unset;
+    }
 
     button {
         position: absolute !important;
@@ -45,12 +50,17 @@ form {
     &-wrapper {
 
         background-color: var(--lightgray);
-        width: auto;
-        height: 65vh;
-        max-height: 650px;
+        width: 80vw;
+        height: fit-content;
         margin: auto;
         clip-path: polygon(0 16%, 14% 0, 100% 0, 100% 84%, 87% 100%, 86% 100%, 0% 150%);
         aspect-ratio: 3/4;
+
+        @include breakpoint(large) {
+            width: auto;
+            height: 65vh;
+            max-height: 650px;
+        }
 
         .title {
             display: flex;
@@ -81,13 +91,15 @@ form {
         }
 
         &::before, &::after {
-            content: '';
-            position: absolute;
-            height: 14vh;
-            width: 6px;
-            background-color: var(--secondary-color);
-            transform: skewY(-33deg) rotate(50deg);
-            z-index: 1;
+            @include breakpoint(large) {
+                content: '';
+                position: absolute;
+                height: 14vh;
+                width: 6px;
+                background-color: var(--secondary-color);
+                transform: skewY(-33deg) rotate(50deg);
+                z-index: 1;
+            }
         }
         &::before {
             top: -2.5vh;

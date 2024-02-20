@@ -22,7 +22,7 @@
     </script>
     <script type="text/javascript">
         window.onload = function() {
-            document.getElementById('contact-form').addEventListener('submit', function(event) {
+            document.getElementById('contact-form-wrapper').addEventListener('submit', function(event) {
                 event.preventDefault();
                 // these IDs from the previous steps
                 emailjs.sendForm('service_qq0nt7z', 'template_6ielzzb', this)
@@ -152,7 +152,7 @@
                         <span class="text-initial text-medium text-tertiary">Formulaire</span>
                         <span class="text-primary">de contact</span>
                     </h2>
-                    <form name="dscontact" action="./thanks.html" netlify>
+                    <form id="contact-form-wrapper" name="dscontact" action="./thanks.html" netlify>
                         <p style="display:none;">
                             <label>Ne pas remplir: <input name="bot-field"></label>
                         </p>

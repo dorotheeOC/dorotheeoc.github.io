@@ -404,6 +404,14 @@
         top: -16px;
     }
 
+    .side-bar + .achievements-title-wrapper {
+        margin-top: -96px;
+
+        @include breakpoint(large) {
+            margin-top: unset;
+        }
+    }
+
     .achievements {
 
         &-title-wrapper {
@@ -421,13 +429,15 @@
             }
 
             .button.isAbs {
-                position: fixed !important;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                margin: auto;
-                z-index: 2;
-                border-radius: 14px 14px 0 0;
+                @include breakpoint(large, max) {
+                    position: fixed !important;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    z-index: 2;
+                    border-radius: 14px 14px 0 0;
+                }
             }
         }
     }
@@ -597,9 +607,11 @@
                 align-self: flex-start;
                 gap: 8px;
                 flex-wrap: nowrap;
+                margin: auto;
 
                 @include breakpoint(large) {
                     max-width: unset;
+                    margin: initial;
                 }
             }
 

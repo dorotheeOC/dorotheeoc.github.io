@@ -1,6 +1,0 @@
-package.json
-**/src
-**/node_modules
-*.json
-*.scss
-webpack.config.js
